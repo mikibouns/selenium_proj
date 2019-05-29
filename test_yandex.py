@@ -11,19 +11,17 @@ class SeleniumTestSearch(unittest.TestCase):
         self.driver.implicitly_wait(5)
         self.driver.get('https://yandex.ru/')
 
-    # def test_yandex_search(self):
-    #     driver = self.driver
-    #     search_field = driver.find_element_by_xpath('//span[@class="input__box"]/input[@id="text"]')
-    #     assert search_field
-    #     search_field.send_keys('Тензор')
-    #     assert driver.find_element_by_class_name('popup_visibility_visible')
-    #     search_field.send_keys(Keys.ENTER)
-    #     result = driver.find_element_by_xpath('//div[@class="content__left"]/ul/li[1]/div/h2/a')
-    #     expected_result = driver.find_element_by_link_text('tensor.ru')
-    #     self.assertEqual(result.get_attribute('href'),
-    #                      expected_result.get_attribute('href'),
-    #                      'htttps://tensor.ru/ не перваz ссылка в поисковой системе "Яндекс" по запросу "Тензор"')
-    #     expected_result.click()
+    def test_yandex_search(self):
+        driver = self.driver
+        search_field = driver.find_element_by_xpath('//span[@class="input__box"]/input[@id="text"]')
+        assert search_field
+        search_field.send_keys('Тензор')
+        assert driver.find_element_by_class_name('popup_visibility_visible')
+        search_field.send_keys(Keys.ENTER)
+        result = driver.find_element_by_xpath('//div[@class="content__left"]/ul/li[1]/div/h2/a')
+        expected_result = driver.find_element_by_link_text('tensor.ru')
+        assert result.get_attribute('href') == expected_result.get_attribute('href'), ('htttps://tensor.ru/ не перваz ссылка в поисковой системе "Яндекс" по запросу "Тензор"')
+        expected_result.click()
 
     def test_yandex_picture_search(self):
         driver = self.driver
@@ -32,10 +30,13 @@ class SeleniumTestSearch(unittest.TestCase):
         images_link.click()
         first_img = driver.find_element_by_class_name('cl-teaser__link')
         first_img.click()
-        src_image_01 = driver.find_element_by_xpath('//div[@class="image__wrap__i"]/img[@data-il="image__wrap"]').get_attribute('src')
-        if requests.get(src_image_01).status_code == 200:
+        first_image = driver.find_element_by_xpath('//div[@class="image__wrap__i"]/img[@data-il="image__wrap"]').get_attribute('src')
+        if requests.get(first_image).status_code == 200:
             print('good')
-        print(src_image_01)
+        next = driver.find_element_by_xpath('//div[@title="Следующая"]/a')
+        next.click()
+        second_image
+        prev = driver.find_element_by_xpath('')
         time.sleep(5)
 
     def tearDown(self):
@@ -43,5 +44,4 @@ class SeleniumTestSearch(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    run = unittest.main()
-    print(run)
+    unittest.main()
