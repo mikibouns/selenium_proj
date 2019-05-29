@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import unittest
 import time
+import requests
 
 
 class SeleniumTestSearch(unittest.TestCase):
@@ -31,7 +32,10 @@ class SeleniumTestSearch(unittest.TestCase):
         images_link.click()
         first_img = driver.find_element_by_class_name('cl-teaser__link')
         first_img.click()
-        assert driver.find_element_by_class_name('wrap__inner_layout')
+        src_image_01 = driver.find_element_by_xpath('//div[@class="image__wrap__i"]/img[@data-il="image__wrap"]').get_attribute('src')
+        if requests.get(src_image_01).status_code == 200:
+            print('good')
+        print(src_image_01)
         time.sleep(5)
 
     def tearDown(self):
