@@ -37,4 +37,18 @@
 
 В результате выполнения скрипта [test_pytest_yandex.py](https://github.com/mikibouns/selenium_proj/blob/master/test_pytest_yandex.py) в текущем каталоге будет создант файл `test.log` с результатами выполнения теста.
 
->Скрипт был написан для веб-браузера `Google Chrome` и `OC Windows`, тестировался только на `ОС Windows 7 Professional x64`
+>Скрипт тестировался только на `ОС Windows 7 Professional x64` для веб-браузера `Google Chrome`
+
+Испольщуемые библиотеки:
++ selenium==3.141.0
++ requests==2.22.0
++ requests==2.22.0
++ pytest-logger==0.5.0
++ Pillow==6.0.0
+
+Используемое ПО:
++ ОС Windows 7
++ веб-браузера Google Chrome
++ Python 3.6
+
+
