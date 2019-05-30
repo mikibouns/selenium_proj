@@ -2,7 +2,7 @@
 
 ## Установка и настройка:
 
-Установить python версией не ниже 3.6 ==> https://www.python.org/downloads/ далее, запустить файл установки виртуальной среды [presetting.py](https://github.com/mikibouns/selenium_proj/blob/master/presetting.py), для этого необходимо находиться в каталоге проекта (selenium_proj):
+Установить python версией не ниже 3.6 ==> https://www.python.org/downloads/ далее, запустить файл предварительной настройки [presetting.py](https://github.com/mikibouns/selenium_proj/blob/master/presetting.py) для этого необходимо находиться в каталоге проекта (selenium_proj):
   + *Windows*  
      ```python install_env.py```
   + *Linux*  
